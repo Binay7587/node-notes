@@ -81,6 +81,29 @@ app.get('/', (request, response) => {
   
     response.json(note)
   })
+
+  app.put('/api/notes/:id', (request, response) => {
+    const body = request.body
+    const id = Number(request.params.id)
+    const note = notes.find(note => note.id === id)
+  
+    if (!note) {
+      return response.status(404).json({ 
+        error: 'Note not found' 
+      })
+    }
+  
+    if (!body.content) {
+      return response.status(400).json({ 
+        error: 'content missing' 
+      })
+    }
+  
+    note.content = body.content
+    note.important = body.important || false
+  
+    response.json(note)
+  });
   
   const PORT = process.env.PORT || 3001
   app.listen(PORT, () => {
