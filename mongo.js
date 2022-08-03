@@ -1,41 +1,40 @@
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
-    console.log('Please provide the password as an argument: node mongo.js <password>')
-    process.exit(1)
+  console.log('Please provide the password as an argument: node mongo.js <password>')
+  process.exit(1)
 }
 
 const password = process.argv[2]
 
 const url = `mongodb+srv://Binay7587:${password}@cluster0.2xmuohq.mongodb.net/notes-db?retryWrites=true&w=majority`
-// const url = `mongodb+srv://Binay7587:M1gwuJQ4v6YwByaq@cluster0.2xmuohq.mongodb.net/notes-db?retryWrites=true&w=majority`
 
 const noteSchema = new mongoose.Schema({
-    content: String,
-    date: Date,
-    important: Boolean,
+  content: String,
+  date: Date,
+  important: Boolean,
 })
 
 const Note = mongoose.model('Note', noteSchema)
 
 mongoose
-    .connect(url)
-    .then((result) => {
-        console.log('connected')
+  .connect(url)
+  .then(() => {
+    console.log('connected')
 
-        // const note = new Note({
-        //     content: 'HTML is Easy',
-        //     date: new Date(),
-        //     important: true,
-        // })
+    // const note = new Note({
+    //     content: 'HTML is Easy',
+    //     date: new Date(),
+    //     important: true,
+    // })
 
-        // return note.save()
+    // return note.save()
 
-        Note.find({ important: true }).then(result => {
-            result.forEach(note => {
-                console.log(note)
-            })
-            mongoose.connection.close()
-        })
+    Note.find({ important: true }).then(result => {
+      result.forEach(note => {
+        console.log(note)
+      })
+      mongoose.connection.close()
     })
-    .catch((err) => console.log(err))
+  })
+  .catch((err) => console.log(err))
