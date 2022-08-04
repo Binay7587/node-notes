@@ -73,8 +73,6 @@ Binaya Karki - [@binay7587](https://www.linkedin.com/in/binay7587) - me@binayaka
 
 Project Link: [https://github.com/Binay7587/node-notes](https://github.com/Binay7587/node-notes)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- LICENSE -->
 ## License
 
