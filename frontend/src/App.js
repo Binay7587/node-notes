@@ -123,7 +123,7 @@ const App = () => {
       <Notification notification={notification} />
 
       {user === null ?
-        <Togglable buttonLabel='login'>
+        <Togglable buttonLabelFirst='login'>
           <LoginForm
             username={username}
             password={password}
@@ -134,7 +134,7 @@ const App = () => {
         </Togglable> :
         <div>
           <p>{user.name} logged in</p>
-          <Togglable buttonLabel="new note"  ref={noteFormRef}>
+          <Togglable buttonLabelFirst="new note"  ref={noteFormRef}>
             <NoteForm
               onSubmit={addNote}
               value={newNote}

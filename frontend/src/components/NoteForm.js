@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const NoteForm = ({ onSubmit, handleChange, value}) => {
   
   return (
@@ -13,6 +15,12 @@ const NoteForm = ({ onSubmit, handleChange, value}) => {
       </form>
     </div>
   )
+}
+
+NoteForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 }
 
 export default NoteForm
