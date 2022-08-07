@@ -34,6 +34,15 @@ const App = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const notificationTimer = setTimeout(() => {
+      setNotification({ message: null, type: null });
+    }, 3000);
+    return () => {
+      clearTimeout(notificationTimer);
+    };
+  }, [notification.message]);
+  
   const handleNoteChange = (event) => {
     console.log(event.target.value)
     setNewNote(event.target.value)
