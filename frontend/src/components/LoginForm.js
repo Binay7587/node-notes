@@ -7,33 +7,33 @@ const LoginForm = ({
   username,
   password
 }) => {
-   return (
-     <div>
-       <h2>Login</h2>
- 
-       <form onSubmit={handleSubmit}>
-         <div>
+  return (
+    <div>
+      <h2>Login</h2>
+
+      <form onSubmit={handleSubmit}>
+        <div>
            username
-           <input
-             value={username}
-             onChange={handleUsernameChange}
-           />
-         </div>
-         <div>
+          <input
+            value={username}
+            onChange={handleUsernameChange}
+          />
+        </div>
+        <div>
            password
-           <input
-             type="password"
-             value={password}
-             onChange={handlePasswordChange}
-           />
-       </div>
-         <button type="submit">login</button>
-       </form>
-     </div>
-   )
- }
- 
- LoginForm.propTypes = {
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
+        <button type="submit">login</button>
+      </form>
+    </div>
+  )
+}
+
+LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleUsernameChange: PropTypes.func.isRequired,
   handlePasswordChange: PropTypes.func.isRequired,
@@ -41,4 +41,4 @@ const LoginForm = ({
   password: PropTypes.string.isRequired
 }
 
- export default LoginForm
+export default LoginForm

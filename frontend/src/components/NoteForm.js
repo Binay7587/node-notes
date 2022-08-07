@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
-const NoteForm = ({ onSubmit, handleChange, value}) => {
-  
+const NoteForm = ({ onSubmit, handleChange, value }) => {
+
   return (
     <div>
       <h2>Create a new note</h2>

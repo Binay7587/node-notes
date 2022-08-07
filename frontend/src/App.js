@@ -36,13 +36,13 @@ const App = () => {
 
   useEffect(() => {
     const notificationTimer = setTimeout(() => {
-      setNotification({ message: null, type: null });
-    }, 3000);
+      setNotification({ message: null, type: null })
+    }, 3000)
     return () => {
-      clearTimeout(notificationTimer);
-    };
-  }, [notification.message]);
-  
+      clearTimeout(notificationTimer)
+    }
+  }, [notification.message])
+
   const handleNoteChange = (event) => {
     console.log(event.target.value)
     setNewNote(event.target.value)
@@ -56,7 +56,7 @@ const App = () => {
       .update(id, changedNote).then(returnedNote => {
         setNotes(notes.map(note => note.id !== id ? note : returnedNote))
       })
-      .catch(error => {
+      .catch(() => {
         setNotification({ message: `Note '${note.content}' was already removed from server`, type: 'error' })
         setNotes(notes.filter(n => n.id !== id))
       })
@@ -134,14 +134,14 @@ const App = () => {
         </Togglable> :
         <div>
           <p>{user.name} logged in</p>
-          <Togglable buttonLabelFirst="new note"  ref={noteFormRef}>
+          <Togglable buttonLabelFirst="new note" ref={noteFormRef}>
             <NoteForm
               onSubmit={addNote}
               value={newNote}
               handleChange={handleNoteChange}
             />
           </Togglable>
-      </div>
+        </div>
       }
 
       <div>
